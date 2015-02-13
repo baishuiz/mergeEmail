@@ -1,0 +1,24 @@
+{
+  "name": "mergeEmail",
+  "version": "0.1.0",
+  "description": "merge email and send",
+  "main": "index.js",
+  "dependencies": {
+    "node-xlsx": "~0.5.1",
+    "nodemailer": "~1.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/baishuiz/mergeEmail.git"
+  },
+  "author": "baishuiz@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baishuiz/mergeEmail/issues"
+  },
+  "homepage": "https://github.com/baishuiz/mergeEmail"
+}
