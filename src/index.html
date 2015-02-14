@@ -45,6 +45,23 @@
 
 
 <script>
+	mail = {
+		merge : function(mailList, datas){
+			var result = {};
+			for (var mailIndex = 0; mailIndex<mailList.length;mailIndex++) {
+				var currentKey = mailList[mailIndex];
+				result[currentKey] = result[currentKey] || [];
+				for (var dataIndex=0;dataIndex<datas.length;dataIndex++){
+					// TO DO
+				}
+				
+			}
+		}
+	}
+</script>
+
+
+<script>
 // prevent default behavior from changing page on dropped file
 window.ondragover = function(e) { e.preventDefault(); return false };
 window.ondrop = function(e) { e.preventDefault(); return false };
