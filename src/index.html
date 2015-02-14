@@ -1,10 +1,24 @@
 <html>
 <body>
 <style>
-#holder { border: 10px dashed #ccc; width: 300px; height: 300px; margin: 20px auto;}
-#holder.hover { border: 10px dashed #333; }
+/* container*/
+.left {background:yellow;width:50%;float:left}
+.right {background:green;width:50%;float:left}
+
+/* target*/
+.holder { border: 10px dashed #ccc; width: 300px; height: 300px; margin: 20px auto;}
+.holder.hover { border: 10px dashed #333; }
 </style>
-<div id="holder"></div>
+
+
+<div class="left">
+    <div class="holder"></div>
+</div>
+<div class="right">
+    <div class="holder"></div>
+</div>
+
+
 
 <script>
 	var xlsx = require('node-xlsx')
