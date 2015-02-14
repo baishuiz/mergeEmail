@@ -12,10 +12,10 @@
 
 
 <div class="left">
-    <div class="holder"></div>
+    <div id="mailList" class="holder"></div>
 </div>
 <div class="right">
-    <div class="holder"></div>
+    <div id="dataList" class="holder"></div>
 </div>
 
 
@@ -25,14 +25,43 @@
 </script>
 
 <script>
+	// libs
+	
+	var libs = {
+		style : {
+			addClass : function(dom, className){
+				var currentClassNames = dom.className;
+				var reg = new RegExt("\b"+className+"\b",g);
+				reg.test(currentClassName) ||  dom.className += " " + "className";
+			},
+			
+			removeClass : function(dom, className) {
+				var reg = new RegExp("\b"+className+"\b",g);
+				dom.className = dom.className.replace(reg,"").replace(/\t+/,"");
+			}
+		}
+	};
+</script>
+
+
+<script>
 // prevent default behavior from changing page on dropped file
 window.ondragover = function(e) { e.preventDefault(); return false };
 window.ondrop = function(e) { e.preventDefault(); return false };
 
-var holder = document.getElementById('holder');
-holder.ondragover = function () { this.className = 'hover'; return false; };
-holder.ondragleave = function () { this.className = ''; return false; };
-holder.ondrop = function (e) {
+var mailList = document.getElementById('mailList');
+var dataList = document.getElementById('dataList');
+mailList.ondragover = function () { 
+	//this.className = 'hover'; 
+	libs.style.addClass(this, "hover");
+	return false; 
+};
+mailList.ondragleave = function () { 
+	//this.className = ''; 
+	libs.style.removeClass(this, "hover");
+	return false; 
+};
+mailList.ondrop = function (e) {
   e.preventDefault();
 
   for (var i = 0; i < e.dataTransfer.files.length; ++i) {
