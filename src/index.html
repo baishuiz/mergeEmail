@@ -2,97 +2,25 @@
 <body>
 <style>
 /* container*/
-.left {background:yellow;width:50%;float:left}
-.right {background:green;width:50%;float:left}
+.left {width:50%;float:left}
+.right {width:50%;float:left}
 
 /* target*/
 .holder { border: 10px dashed #ccc; width: 300px; height: 300px; margin: 20px auto;}
 .holder.hover { border: 10px dashed #333; }
+
+.show {display: block}
+.hidden {display:none;}
 </style>
 
 
-<div class="left">
-    <div id="mailList" class="holder"></div>
+
+<div id="mailList" class="holder">
+	<!-- img id="loading" class="hidden" src="imgs/loading.gif"  width="100%" alt="loading" -->
+	<button class="hidden" id="sendEmail"> send Email </button>
+
 </div>
-<div class="right">
-    <div id="dataList" class="holder"></div>
-</div>
-
-
-
-<script>
-	var xlsx = require('node-xlsx')
-</script>
-
-<script>
-	// libs
-	
-	var libs = {
-		style : {
-			addClass : function(dom, className){
-				var currentClassNames = dom.className;
-				var reg = new RegExt("\b"+className+"\b",g);
-				reg.test(currentClassName) ||  dom.className += " " + "className";
-			},
-			
-			removeClass : function(dom, className) {
-				var reg = new RegExp("\b"+className+"\b",g);
-				dom.className = dom.className.replace(reg,"").replace(/\t+/,"");
-			}
-		}
-	};
-</script>
-
-
-<script>
-	mail = {
-		merge : function(mailList, datas){
-			var result = {};
-			for (var mailIndex = 0; mailIndex<mailList.length;mailIndex++) {
-				var currentKey = mailList[mailIndex];
-				result[currentKey] = result[currentKey] || [];
-				for (var dataIndex=0;dataIndex<datas.length;dataIndex++){
-					// TO DO
-				}
-				
-			}
-		}
-	}
-</script>
-
-
-<script>
-// prevent default behavior from changing page on dropped file
-window.ondragover = function(e) { e.preventDefault(); return false };
-window.ondrop = function(e) { e.preventDefault(); return false };
-
-var mailList = document.getElementById('mailList');
-var dataList = document.getElementById('dataList');
-mailList.ondragover = function () { 
-	//this.className = 'hover'; 
-	libs.style.addClass(this, "hover");
-	return false; 
-};
-mailList.ondragleave = function () { 
-	//this.className = ''; 
-	libs.style.removeClass(this, "hover");
-	return false; 
-};
-mailList.ondrop = function (e) {
-  e.preventDefault();
-
-  for (var i = 0; i < e.dataTransfer.files.length; ++i) {
-    console.log(e.dataTransfer.files[i].path);
-    var filePath = e.dataTransfer.files[i].path;
-    var obj = xlsx.parse(filePath);
-    //console.log(JSON.stringify(obj));
-    console.log(obj)
-  }
-  return false;
-};
-</script>
-
-
-
+<script src="libs.js"></script>
+<script src="test.js"></script>
 </body>
 </html>
