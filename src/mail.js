@@ -1,4 +1,7 @@
+process.send("ok1")
+console.log("ok")
 var xlsx = require('node-xlsx');
+process.send("ok2")
 process.on('message', function(files){
 	process.send(files)
 	/*
