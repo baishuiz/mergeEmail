@@ -80,10 +80,13 @@ function sendMail(to, html) {
     smtpTransport.sendMail(mailOptions, function(error, response){
         if (error) {
             console.log(error);
+            alert(error.message)
         } else {
             console.log('Message sent: ' + response.message);
         }
         smtpTransport.close();
+        var btn = document.getElementById("loading");
+        btn.src="imgs/ok.gif"
     });
 };
 
